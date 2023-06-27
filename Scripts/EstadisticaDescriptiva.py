@@ -12,7 +12,7 @@ url = "Datos\ECH_2022 - BD Proyecto Final PyE 2023.csv"
 ech = pd.read_csv(url, names=names, delimiter=";",skiprows=1)
 
 def calcularTasaDesempleo(personasDesempleadas,PEA):
-    return round((personasDesempleadas / PEA) *100,1)
+    return round((personasDesempleadas / PEA),4)
 
 def graficarTasaDesempleo():
     totalPersonasRango1 = len(ech.query('Edad>=14 & Edad<=17')['Edad'])
@@ -37,5 +37,5 @@ def graficarTasaDesempleo():
     plt.subplot().bar(ejeX,ejeY)
     plt.show()
 
-print(calcularTasaDesempleo(len(ech[ech['Desempleo'] == 1]),len(ech[ech['PEA'] == 1])))
+print("La tasa de desempleo en el uruguay es: "+str(calcularTasaDesempleo(len(ech[ech['Desempleo'] == 1]),len(ech[ech['PEA'] == 1]))))
 graficarTasaDesempleo()
