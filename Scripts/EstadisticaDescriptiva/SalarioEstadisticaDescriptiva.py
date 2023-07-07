@@ -14,19 +14,19 @@ def histograma_salarios():
 def boxplot_salarios():
     plt.title("Box-plot salarios totales")
     salarios = ech.query('0<Salario')['Salario']
-    plt.boxplot(salarios,whis=500000)
+    plt.boxplot(salarios,whis=350)
     plt.show()
 
     plt.title("Box-plot salarios masculinos y femeninos")
     salarios_masc = ech.query('Sexo == 1 & Salario>0')['Salario']
     salarios_fem = ech.query('Sexo == 2 & Salario>0')['Salario']
-    plt.boxplot([salarios_masc,salarios_fem],whis=500000,labels=["Masculino","Femenino"])
+    plt.boxplot([salarios_masc,salarios_fem],whis=350,labels=["Masculino","Femenino"])
     plt.show()
 
     plt.title("Box-plot salarios de capital y del interior")
     salarios_capital = ech.query('region == 1 & Salario>0')['Salario']
     salarios_interior = ech.query('(region == 2 | region == 3) & Salario>0')['Salario']
-    plt.boxplot([salarios_capital,salarios_interior],whis=500000,labels=["Montevideo","Interior"])
+    plt.boxplot([salarios_capital,salarios_interior],whis=350,labels=["Montevideo","Interior"])
     plt.show()
 
 def estadisticas():
