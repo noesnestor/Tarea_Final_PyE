@@ -1,0 +1,6 @@
+import EstadisticaDescriptiva.DesempleoEstadisticaDescriptiva as a1
+import EstadisticaDescriptiva.SalarioEstadisticaDescriptiva as a2
+import Estimacion.Estimacion as b
+import PruebaHipotesis.PruebaHipotesisDesempleo as c1
+import PruebaHipotesis.PruebaHipotesisSalario as c2
+
