@@ -18,10 +18,9 @@ def estimarDesempleoTotal(datos : pd.DataFrame):
 def IntervaloDeConfianza(datos : pd.DataFrame):
     desempleo_total = estimarDesempleoTotal(datos)
 
-    confianza = 0.95  
-    grados_libertad = len(datos[(datos['PEA'] == 1)]) - 1
+    confianza = 0.95
     error_estandar = st.sem(datos.query('PEA == 1')['Desempleo'])
-    intervalo_confianza = st.t.interval(confianza, grados_libertad, loc=desempleo_total, scale=error_estandar)
+    intervalo_confianza = st.norm.interval(confianza, loc=desempleo_total, scale=error_estandar)
 
     return intervalo_confianza
 
